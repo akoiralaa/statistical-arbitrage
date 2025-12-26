@@ -2,7 +2,7 @@ import pandas as pd
 import os
 from pathlib import Path
 
-input_dir = '/mnt/user-data/uploads/statistical-arbitrage/data/historical'
+input_dir = '/Users/abhiekoirala/Desktop/statistical-arbitrage/data/historical'
 output_dir = './data/historical'
 
 # Create output dir

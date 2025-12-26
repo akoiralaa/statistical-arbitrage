@@ -45,16 +45,23 @@ class Trade:
         self.exit_price = exit_price
         self.exit_quantity = exit_quantity
         
-        # Calculate P&L
+        # Calculate P&L as percentage of position size
+        # entry_quantity is the position size in dollars
+        # P&L = position_size * (spread_change % )
+        if self.entry_price == 0:
+            spread_change_pct = 0
+        else:
+            spread_change_pct = (exit_price - self.entry_price) / abs(self.entry_price)
+        
         if self.side == 'LONG':
             # Long spread: profit if exit > entry
-            self.gross_pnl = (exit_price - self.entry_price) * exit_quantity
+            self.gross_pnl = self.entry_quantity * spread_change_pct
         else:
             # Short spread: profit if exit < entry
-            self.gross_pnl = (self.entry_price - exit_price) * exit_quantity
+            self.gross_pnl = -self.entry_quantity * spread_change_pct
         
         self.net_pnl = self.gross_pnl - fees
-        self.return_pct = (self.net_pnl / self.entry_price) * 100 if self.entry_price != 0 else 0
+        self.return_pct = (self.net_pnl / self.entry_quantity) * 100 if self.entry_quantity != 0 else 0
     
     def to_dict(self):
         """Convert trade to dictionary."""

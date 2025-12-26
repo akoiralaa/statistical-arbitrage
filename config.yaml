@@ -2,9 +2,9 @@
 
 # Pairs to trade
 pairs:
-  - BTC/USDT
-  - ETH/USDT
-  - SOL/USDT
+  - BTC
+  - ETH
+  - ADA
 
 # Backtesting parameters
 backtest:
