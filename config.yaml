@@ -29,8 +29,8 @@ risk:
 cointegration:
   lookback_days: 252
   recalc_frequency: 7
-  min_pvalue: 0.05
-
+  min_pvalue: 0.15  # Changed from 0.05 to 0.15
+  
 # Data source configuration
 data:
   source: "ccxt"
