@@ -11,35 +11,35 @@ backtest:
   start_date: "2023-01-01"
   end_date: "2024-12-31"
   starting_capital: 10000
-  timeframe: "1d"  # 1d, 4h, 1h
+  timeframe: "1d"
 
 # Signal thresholds (Z-score based)
 signals:
-  entry_threshold: 2.0    # Enter when |zscore| > 2.0
-  exit_threshold: 0.5     # Exit when |zscore| < 0.5
+  entry_threshold: 2.0
+  exit_threshold: 0.5
 
 # Risk management
 risk:
-  max_position_pct: 10    # Max 10% of capital per position
-  risk_per_trade: 0.02    # Risk 2% per trade
-  max_drawdown_pct: 0.15  # Stop if drawdown > 15%
-  stop_loss_pct: 0.05     # 5% stop loss
+  max_position_pct: 10
+  risk_per_trade: 0.02
+  max_drawdown_pct: 0.15
+  stop_loss_pct: 0.05
 
 # Cointegration parameters
 cointegration:
-  lookback_days: 252      # 1 year lookback for ADF test
-  recalc_frequency: 7     # Recalculate weekly
-  min_pvalue: 0.05        # ADF p-value threshold for cointegration
+  lookback_days: 252
+  recalc_frequency: 7
+  min_pvalue: 0.05
 
 # Data source configuration
 data:
-  source: "ccxt"          # ccxt or alpaca
-  exchange: "binance"     # Exchange name for CCXT
-  cache_dir: "./data/historical"  # Where to cache downloaded data
-  
+  source: "ccxt"
+  exchange: "binance"
+  cache_dir: "./data/historical"
+
 # Alpaca configuration (for live trading)
 alpaca:
-  base_url: "https://paper-api.alpaca.markets"  # Paper trading URL
+  base_url: "https://paper-api.alpaca.markets"
   api_key: "${ALPACA_API_KEY}"
   api_secret: "${ALPACA_API_SECRET}"
 
@@ -51,6 +51,6 @@ logging:
 
 # Advanced options
 advanced:
-  slippage_pct: 0.001     # 0.1% slippage on trades
-  commission_pct: 0.001   # 0.1% commission
-  rebalance_frequency: 7  # Rebalance hedge ratio weekly
+  slippage_pct: 0.001
+  commission_pct: 0.001
+  rebalance_frequency: 7
