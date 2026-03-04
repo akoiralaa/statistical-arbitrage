@@ -38,6 +38,10 @@ logs/
 .env
 .env.local
 
+# macOS
+.DS_Store
+**/.DS_Store
+
 # Data (too large to commit)
 data/historical/*.csv
 results/
