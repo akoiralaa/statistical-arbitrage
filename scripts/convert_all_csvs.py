@@ -1,9 +1,10 @@
 import pandas as pd
 import os
+import sys
 from pathlib import Path
 
-input_dir = '/Users/abhiekoirala/Desktop/statistical-arbitrage/data/historical'
-output_dir = './data/historical'
+input_dir = sys.argv[1] if len(sys.argv) > 1 else './data/historical'
+output_dir = sys.argv[2] if len(sys.argv) > 2 else './data/historical'
 
 # Create output dir
 Path(output_dir).mkdir(parents=True, exist_ok=True)
